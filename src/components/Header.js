@@ -6,11 +6,16 @@ import InstagramIcon from './icons/InstagramIcon';
 import FacebookIcon from './icons/FacebookIcon';
 
 const Wrapper = styled('header')`
+    background-color: #ff9977;
+`;
+
+const InnerWrapper = styled('div')`
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ff9977;
+    max-width: 1980px;
+    margin: 0 auto;
     padding: 16px;
     height: 56px;
 
@@ -83,9 +88,10 @@ const Navbar = styled('nav')`
 
     @media (min-width: 1024px) {
         position: initial;
-        transform: none;
+        transform: translateX(0);
         transition: none;
         flex-direction: row;
+        justify-content: flex-end;
         height: 100%;
         width: 100%;
         padding: 0;
@@ -126,10 +132,7 @@ const Item = styled('div')`
     }
 `;
 
-const StyledLink = styled(Link)`
-    text-decoration: none;
-    color: #fff;
-`;
+const StyledLink = styled(Link)();
 
 const Socials = styled('div')`
     width: 100%;
@@ -148,39 +151,45 @@ const Header = () => {
 
     return (
         <Wrapper>
-            <Logo>Onsite</Logo>
-            <HamburgerMenu className={isMenuOpen ? 'is-open' : ''} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                <Line />
-                <Line />
-                <Line />
-            </HamburgerMenu>
-            <Navbar className={isMenuOpen ? 'is-open' : ''}>
-                <Item>
-                    <StyledLink to='/' onClick={() => setIsMenuOpen(false)}>
-                        Hem
-                    </StyledLink>
-                </Item>
-                <Item>
-                    <StyledLink to='/tjanster' onClick={() => setIsMenuOpen(false)}>
-                        Våra tjänster
-                    </StyledLink>
-                </Item>
-                <Item>
-                    <StyledLink to='/om-oss' onClick={() => setIsMenuOpen(false)}>
-                        Om oss
-                    </StyledLink>
-                </Item>
-                <Item>
-                    <StyledLink to='/kontakt' onClick={() => setIsMenuOpen(false)}>
-                        Kontakt
-                    </StyledLink>
-                </Item>
-                <Socials>
-                    <InstagramIcon width='40px' height='40px' />
-                    <LinkedInIcon width='40px' height='40px' />
-                    <FacebookIcon width='40px' height='40px' />
-                </Socials>
-            </Navbar>
+            <InnerWrapper>
+                <Logo>
+                    <Link to='/' onClick={() => setIsMenuOpen(false)}>
+                        Onsite
+                    </Link>
+                </Logo>
+                <HamburgerMenu className={isMenuOpen ? 'is-open' : ''} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    <Line />
+                    <Line />
+                    <Line />
+                </HamburgerMenu>
+                <Navbar className={isMenuOpen ? 'is-open' : ''}>
+                    <Item>
+                        <StyledLink to='/' onClick={() => setIsMenuOpen(false)}>
+                            Hem
+                        </StyledLink>
+                    </Item>
+                    <Item>
+                        <StyledLink to='/tjanster' onClick={() => setIsMenuOpen(false)}>
+                            Våra tjänster
+                        </StyledLink>
+                    </Item>
+                    <Item>
+                        <StyledLink to='/om-oss' onClick={() => setIsMenuOpen(false)}>
+                            Om oss
+                        </StyledLink>
+                    </Item>
+                    <Item>
+                        <StyledLink to='/kontakt' onClick={() => setIsMenuOpen(false)}>
+                            Kontakt
+                        </StyledLink>
+                    </Item>
+                    <Socials>
+                        <InstagramIcon width='40px' height='40px' />
+                        <LinkedInIcon width='40px' height='40px' />
+                        <FacebookIcon width='40px' height='40px' />
+                    </Socials>
+                </Navbar>
+            </InnerWrapper>
         </Wrapper>
     );
 };

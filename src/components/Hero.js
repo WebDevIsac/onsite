@@ -4,24 +4,29 @@ import styled from '@emotion/styled';
 
 const Wrapper = styled('div')`
     width: 100%;
-    height: 30vh;
-    align-self: left;
+    height: 40vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+    padding: 16px;
+    margin-bottom: 32px;
 `;
 
-const ImageWrapper = styled('div')`
-    width: 80%;
-    height: 100%;
-    background-image: url('https://via.placeholder.com/200x150');
-    background-repeat: no-repeat;
-    background-size: cover;
+const Heading = styled('h1')`
+    font-size: 2.2em;
+    line-height: 1.5em;
+
+    @media screen and (min-width: 1024px) {
+        font-size: 3em;
+    }
 `;
 
 const Hero = () => {
     return (
         <Wrapper>
-            <ImageWrapper></ImageWrapper>
+            <Heading>OnSite skapar framgång hos individer och företag</Heading>
         </Wrapper>
     );
 };

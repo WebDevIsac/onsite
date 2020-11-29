@@ -20,4 +20,17 @@ export const resetStyle = `
             outline: 0;
         }
 	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 500;
+	}
+
+	p, span {
+		font-size: 14px;
+	}
+
+	a {
+		text-decoration: none;
+		color: #000;
+	}
 `;

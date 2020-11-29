@@ -17,6 +17,13 @@ const Site = styled('div')`
     overflow-x: hidden;
 `;
 
+const PageWrapper = styled('div')`
+    height: 100%;
+    width: 100%;
+    max-width: 1980px;
+    margin: 0 auto;
+`;
+
 const App = () => {
     return (
         <>
@@ -29,20 +36,22 @@ const App = () => {
             <Router>
                 <Site>
                     <Header />
-                    <Switch>
-                        <Route path='/tjanster'>
-                            <Services />
-                        </Route>
-                        <Route path='/om-oss'>
-                            <About />
-                        </Route>
-                        <Route path='/kontakt'>
-                            <Contact />
-                        </Route>
-                        <Route path='/'>
-                            <FrontPage />
-                        </Route>
-                    </Switch>
+                    <PageWrapper>
+                        <Switch>
+                            <Route path='/tjanster'>
+                                <Services />
+                            </Route>
+                            <Route path='/om-oss'>
+                                <About />
+                            </Route>
+                            <Route path='/kontakt'>
+                                <Contact />
+                            </Route>
+                            <Route path='/'>
+                                <FrontPage />
+                            </Route>
+                        </Switch>
+                    </PageWrapper>
                 </Site>
             </Router>
         </>
