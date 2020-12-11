@@ -9,7 +9,7 @@ const Wrapper = styled('div')`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: lightblue;
+    background-color: #f3cca7;
     padding: 16px;
     margin-bottom: 32px;
 `;
@@ -23,10 +23,10 @@ const Heading = styled('h1')`
     }
 `;
 
-const Hero = () => {
+const Hero = ({ text }) => {
     return (
         <Wrapper>
-            <Heading>OnSite skapar framgång hos individer och företag</Heading>
+            <Heading>{text}</Heading>
         </Wrapper>
     );
 };

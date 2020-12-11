@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import LinkedInIcon from './icons/LinkedInIcon';
-import InstagramIcon from './icons/InstagramIcon';
-import FacebookIcon from './icons/FacebookIcon';
+import LinkedInIcon from 'components/icons/LinkedInIcon';
+import InstagramIcon from 'components/icons/InstagramIcon';
+import FacebookIcon from 'components/icons/FacebookIcon';
 
 const Wrapper = styled('header')`
     background-color: #ff9977;
+    position: fixed;
+    width: 100%;
 `;
 
 const InnerWrapper = styled('div')`
@@ -19,7 +21,7 @@ const InnerWrapper = styled('div')`
     padding: 16px;
     height: 56px;
 
-    @media (min-width: 1024px) {
+    @media screen and (min-width: 1024px) {
         height: 72px;
     }
 `;
@@ -51,7 +53,7 @@ const HamburgerMenu = styled('button')`
         }
     }
 
-    @media (min-width: 1024px) {
+    @media screen and (min-width: 1024px) {
         display: none;
     }
 `;
@@ -67,9 +69,10 @@ const Line = styled('span')`
 `;
 
 const Navbar = styled('nav')`
-    position: absolute;
+    position: fixed;
     top: 56px;
     right: 0;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -86,7 +89,7 @@ const Navbar = styled('nav')`
         transform: translateX(0);
     }
 
-    @media (min-width: 1024px) {
+    @media screen and (min-width: 1024px) {
         position: initial;
         transform: translateX(0);
         transition: none;
@@ -101,26 +104,26 @@ const Navbar = styled('nav')`
 const Item = styled('div')`
     font-size: 20px;
 
-    @media (max-width: 1024px) {
+    @media screen and (max-width: 1024px) {
         &:not(:last-of-type) {
             margin-bottom: 40px;
         }
     }
 
-    @media (min-width: 1024px) {
+    @media screen and (min-width: 1024px) {
         font-size: 16px;
 
         &:after {
             content: '';
             display: block;
             width: 100%;
-            height: 1px;
+            height: 2px;
             background-color: #fff;
             max-width: 0px;
             transition: max-width 400ms ease;
         }
 
-        @media (hover: hover) {
+        @media screen and (hover: hover) {
             &:hover:after {
                 max-width: 100%;
             }
@@ -141,56 +144,107 @@ const Socials = styled('div')`
     align-items: center;
     margin-top: auto;
 
-    @media (min-width: 1024px) {
+    @media screen and (min-width: 1024px) {
         display: none;
+    }
+`;
+
+const MobileMenuBackground = styled('div')`
+    position: absolute;
+    top: 56px;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height: calc(100vh - 56px);
+    pointer-events: none;
+    background-color: #000;
+    transition: opacity 200ms ease;
+    opacity: 0;
+
+    &.is-open {
+        pointer-events: auto;
+        opacity: 0.4;
+    }
+
+    @media screen and (min-width: 1024px) {
+        display: none;
+    }
+`;
+
+const HeaderFiller = styled('div')`
+    height: 56px;
+    width: 100%;
+
+    @media screen and (min-width: 1024px) {
+        height: 72px;
     }
 `;
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const toggleMenu = () => {
+        let body;
+        if (document !== undefined) {
+            body = document.querySelector('body');
+            console.log(body);
+        }
+
+        if (isMenuOpen) {
+            setIsMenuOpen(false);
+            body.style.overflow = 'auto';
+        } else {
+            setIsMenuOpen(true);
+            body.style.overflow = 'hidden';
+        }
+    };
+
     return (
-        <Wrapper>
-            <InnerWrapper>
-                <Logo>
-                    <Link to='/' onClick={() => setIsMenuOpen(false)}>
-                        Onsite
-                    </Link>
-                </Logo>
-                <HamburgerMenu className={isMenuOpen ? 'is-open' : ''} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                    <Line />
-                    <Line />
-                    <Line />
-                </HamburgerMenu>
-                <Navbar className={isMenuOpen ? 'is-open' : ''}>
-                    <Item>
-                        <StyledLink to='/' onClick={() => setIsMenuOpen(false)}>
-                            Hem
-                        </StyledLink>
-                    </Item>
-                    <Item>
-                        <StyledLink to='/tjanster' onClick={() => setIsMenuOpen(false)}>
-                            Våra tjänster
-                        </StyledLink>
-                    </Item>
-                    <Item>
-                        <StyledLink to='/om-oss' onClick={() => setIsMenuOpen(false)}>
-                            Om oss
-                        </StyledLink>
-                    </Item>
-                    <Item>
-                        <StyledLink to='/kontakt' onClick={() => setIsMenuOpen(false)}>
-                            Kontakt
-                        </StyledLink>
-                    </Item>
-                    <Socials>
-                        <InstagramIcon width='40px' height='40px' />
-                        <LinkedInIcon width='40px' height='40px' />
-                        <FacebookIcon width='40px' height='40px' />
-                    </Socials>
-                </Navbar>
-            </InnerWrapper>
-        </Wrapper>
+        <>
+            <Wrapper>
+                <InnerWrapper>
+                    <Logo>
+                        <Link to='/' onClick={toggleMenu}>
+                            Onsite
+                        </Link>
+                    </Logo>
+                    <HamburgerMenu className={isMenuOpen ? 'is-open' : ''} onClick={toggleMenu}>
+                        <Line />
+                        <Line />
+                        <Line />
+                    </HamburgerMenu>
+                    <Navbar className={isMenuOpen ? 'is-open' : ''}>
+                        <Item>
+                            <StyledLink to='/' onClick={toggleMenu}>
+                                Hem
+                            </StyledLink>
+                        </Item>
+                        <Item>
+                            <StyledLink to='/tjanster' onClick={toggleMenu}>
+                                Våra tjänster
+                            </StyledLink>
+                        </Item>
+                        <Item>
+                            <StyledLink to='/om-oss' onClick={toggleMenu}>
+                                Om oss
+                            </StyledLink>
+                        </Item>
+                        <Item>
+                            <StyledLink to='/kontakt' onClick={toggleMenu}>
+                                Kontakt
+                            </StyledLink>
+                        </Item>
+                        <Socials>
+                            <InstagramIcon width='40px' height='40px' />
+                            <LinkedInIcon width='40px' height='40px' />
+                            <FacebookIcon width='40px' height='40px' />
+                        </Socials>
+                    </Navbar>
+                    <MobileMenuBackground className={isMenuOpen ? 'is-open' : ''} onClick={toggleMenu} />
+                </InnerWrapper>
+            </Wrapper>
+            <HeaderFiller />
+        </>
     );
 };
 

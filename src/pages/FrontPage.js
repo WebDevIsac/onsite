@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Hero from '../components/Hero';
+import Hero from 'components/Hero';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled('div')`
@@ -12,7 +12,7 @@ const Wrapper = styled('div')`
 const ContentWrapper = styled('div')`
     display: flex;
     flex-direction: column;
-    padding: 0 16px;
+    padding: 16px;
 `;
 
 const H3 = styled('h3')`
@@ -43,15 +43,16 @@ const StyledLink = styled(Link)`
 const FrontPage = () => {
     return (
         <Wrapper>
-            <Hero />
+            <Hero text='OnSite skapar framgång hos individer och företag' />
             <ContentWrapper>
                 <H3>Rådgivning och erfarenhet</H3>
                 <Text>
                     När du anlitar OnSite så får du tillgång till en personlig rådgivare /expert med unik erfarenhet och förmåga att skapa framgång hos
                     individer och företag.
                 </Text>
-                <StyledLink>Läs mer om oss</StyledLink>
+                <StyledLink to='/om-oss'>Läs mer om oss</StyledLink>
             </ContentWrapper>
+            <img src='assets/images/helene.jpeg' />
         </Wrapper>
     );
 };
