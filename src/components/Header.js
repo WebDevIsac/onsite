@@ -135,7 +135,9 @@ const Item = styled('div')`
     }
 `;
 
-const StyledLink = styled(Link)();
+const StyledLink = styled(Link)`
+    color: #fff;
+`;
 
 const Socials = styled('div')`
     width: 100%;

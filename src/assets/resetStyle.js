@@ -31,6 +31,6 @@ export const resetStyle = `
 
 	a {
 		text-decoration: none;
-		color: #000;
+		color: inherit;
 	}
 `;

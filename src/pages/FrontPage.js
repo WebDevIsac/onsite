@@ -40,6 +40,12 @@ const StyledLink = styled(Link)`
     }
 `;
 
+const ImageWrapper = styled('div')`
+    display: block;
+    width: 100%;
+    height: 400px;
+`;
+
 const FrontPage = () => {
     return (
         <Wrapper>
@@ -52,7 +58,7 @@ const FrontPage = () => {
                 </Text>
                 <StyledLink to='/om-oss'>Läs mer om oss</StyledLink>
             </ContentWrapper>
-            <img src='assets/images/helene.jpeg' />
+            <ImageWrapper></ImageWrapper>
         </Wrapper>
     );
 };
