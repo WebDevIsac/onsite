@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Hero from 'components/Hero';
 
 const Wrapper = styled('div')``;
 
 const About = () => {
     return (
         <Wrapper>
-            <h1>Om Onsite</h1>
+            <Hero text='Få tillgång till en personlig rådgivare med unik erfarenhet' />
             <p>
                 När du anlitar OnSite så får du tillgång till en personlig rådgivare /expert med unik erfarenhet och förmåga att skapa framgång hos individer
                 och företag. Med gedigen erfarenhet från internationella företag i högsta ledningen och fokus på strategiskt, affärsdrivet ledarskap,
                 organisationsutveckling och att bygga och utveckla en stark företagskultur. Bakgrund inom Mode/ Retail och Tjänste/Service sektorn.
             </p>
-            <h3>OnSite</h3>
 
             <ul>
                 <li>30 års ledarerfarenhet</li>

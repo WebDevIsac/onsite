@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Hero from 'components/Hero';
 
 const Wrapper = styled('div')``;
 
 const Contact = () => {
     return (
         <Wrapper>
+            <Hero text='Är du sugen på en ny utmaning?' />
             <h1>Kontakt</h1>
             <p>
                 Är du sugen på en ny utmaning? Tag kontakt med OnSite så får du en personlig kartläggning och rådgivning om vad för typ av bolag och tjänst som

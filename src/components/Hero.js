@@ -11,7 +11,7 @@ const Wrapper = styled('div')`
     justify-content: center;
     align-items: center;
     background-color: #f3cca7;
-    padding: 16px;
+    padding: 64px;
     margin-bottom: 32px;
     background-image: url(${img});
     background-position: center;
@@ -23,6 +23,7 @@ const Heading = styled('h1')`
     font-size: 2.2em;
     line-height: 1.5em;
     color: #fff;
+    text-align: center;
 
     @media screen and (min-width: 1024px) {
         font-size: 3em;

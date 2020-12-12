@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Hero from 'components/Hero';
 
 const Wrapper = styled('div')``;
 
 const Services = () => {
     return (
         <Wrapper>
+            <Hero text='Organisationsutveckling / rådgivning – start up eller förändring' />
             <h1>Tjänster</h1>
             <p>
                 Interim uppdrag - ger stor flexibilitet om du snabbt behöver få in rätt kompetens under en begränsad period. Vi kan erbjuda effektiva

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import LinkComponent from 'components/LinkComponent';
 import LinkedInIcon from 'components/icons/LinkedInIcon';
 import InstagramIcon from 'components/icons/InstagramIcon';
 import FacebookIcon from 'components/icons/FacebookIcon';
@@ -102,6 +103,7 @@ const Navbar = styled('nav')`
 `;
 
 const Item = styled('div')`
+    color: #fff;
     font-size: 20px;
 
     @media screen and (max-width: 1024px) {
@@ -113,30 +115,10 @@ const Item = styled('div')`
     @media screen and (min-width: 1024px) {
         font-size: 16px;
 
-        &:after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: #fff;
-            max-width: 0px;
-            transition: max-width 400ms ease;
-        }
-
-        @media screen and (hover: hover) {
-            &:hover:after {
-                max-width: 100%;
-            }
-        }
-
         &:not(:last-of-type) {
             margin-right: 32px;
         }
     }
-`;
-
-const StyledLink = styled(Link)`
-    color: #fff;
 `;
 
 const Socials = styled('div')`
@@ -189,7 +171,8 @@ const Header = () => {
         let body;
         if (document !== undefined) {
             body = document.querySelector('body');
-            console.log(body);
+        } else {
+            return;
         }
 
         if (isMenuOpen) {
@@ -217,24 +200,24 @@ const Header = () => {
                     </HamburgerMenu>
                     <Navbar className={isMenuOpen ? 'is-open' : ''}>
                         <Item>
-                            <StyledLink to='/' onClick={toggleMenu}>
+                            <LinkComponent toUrl='/' onClick={toggleMenu} withAnimation>
                                 Hem
-                            </StyledLink>
+                            </LinkComponent>
                         </Item>
                         <Item>
-                            <StyledLink to='/tjanster' onClick={toggleMenu}>
+                            <LinkComponent toUrl='/tjanster' onClick={toggleMenu} withAnimation>
                                 Våra tjänster
-                            </StyledLink>
+                            </LinkComponent>
                         </Item>
                         <Item>
-                            <StyledLink to='/om-oss' onClick={toggleMenu}>
+                            <LinkComponent toUrl='/om-oss' onClick={toggleMenu} withAnimation>
                                 Om oss
-                            </StyledLink>
+                            </LinkComponent>
                         </Item>
                         <Item>
-                            <StyledLink to='/kontakt' onClick={toggleMenu}>
+                            <LinkComponent toUrl='/kontakt' onClick={toggleMenu} withAnimation>
                                 Kontakt
-                            </StyledLink>
+                            </LinkComponent>
                         </Item>
                         <Socials>
                             <InstagramIcon width='40px' height='40px' />

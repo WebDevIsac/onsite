@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Hero from 'components/Hero';
-import { Link } from 'react-router-dom';
+import LinkComponent from 'components/LinkComponent';
 
 const Wrapper = styled('div')`
     display: flex;
@@ -13,9 +13,13 @@ const ContentWrapper = styled('div')`
     display: flex;
     flex-direction: column;
     padding: 16px;
+
+    & > div:after {
+        background-color: #000;
+    }
 `;
 
-const H3 = styled('h3')`
+const H2 = styled('h2')`
     margin-bottom: 8px;
 
     @media screen and (min-width: 1024px) {
@@ -25,18 +29,10 @@ const H3 = styled('h3')`
 
 const Text = styled('p')`
     margin-bottom: 12px;
+    font-size: 16px;
 
     @media screen and (min-width: 1024px) {
         margin-bottom: 16px;
-    }
-`;
-
-const StyledLink = styled(Link)`
-    text-decoration: underline;
-    align-self: flex-end;
-
-    @media screen and (min-width: 1024px) {
-        align-self: flex-start;
     }
 `;
 
@@ -51,12 +47,14 @@ const FrontPage = () => {
         <Wrapper>
             <Hero text='OnSite skapar framgång hos individer och företag' />
             <ContentWrapper>
-                <H3>Rådgivning och erfarenhet</H3>
+                <H2>Rådgivning och erfarenhet</H2>
                 <Text>
                     När du anlitar OnSite så får du tillgång till en personlig rådgivare /expert med unik erfarenhet och förmåga att skapa framgång hos
                     individer och företag.
                 </Text>
-                <StyledLink to='/om-oss'>Läs mer om oss</StyledLink>
+                <LinkComponent toUrl='/om-oss' isReversed withAnimation>
+                    Läs mer om oss
+                </LinkComponent>
             </ContentWrapper>
             <ImageWrapper></ImageWrapper>
         </Wrapper>
