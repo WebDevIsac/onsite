@@ -13,13 +13,14 @@ const ContentWrapper = styled('div')`
     display: flex;
     flex-direction: column;
     padding: 16px;
+    max-width: 1440px;
 
     & > div:after {
         background-color: #000;
     }
 `;
 
-const H2 = styled('h2')`
+const H1 = styled('h1')`
     margin-bottom: 8px;
 
     @media screen and (min-width: 1024px) {
@@ -47,7 +48,7 @@ const FrontPage = () => {
         <Wrapper>
             <Hero text='OnSite skapar framgång hos individer och företag' />
             <ContentWrapper>
-                <H2>Rådgivning och erfarenhet</H2>
+                <H1>Rådgivning och erfarenhet</H1>
                 <Text>
                     När du anlitar OnSite så får du tillgång till en personlig rådgivare /expert med unik erfarenhet och förmåga att skapa framgång hos
                     individer och företag.

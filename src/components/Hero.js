@@ -14,9 +14,13 @@ const Wrapper = styled('div')`
     padding: 64px;
     margin-bottom: 32px;
     background-image: url(${img});
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: 35% 50%;
+
+    @media screen and (min-width: 768px) {
+        background-position: 50% 50%;
+    }
 `;
 
 const Heading = styled('h1')`

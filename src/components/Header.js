@@ -167,7 +167,11 @@ const HeaderFiller = styled('div')`
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
+    const toggleMenu = (shouldOpen = true) => {
+        if (!isMenuOpen && !shouldOpen) {
+            return;
+        }
+
         let body;
         if (document !== undefined) {
             body = document.querySelector('body');
@@ -189,7 +193,7 @@ const Header = () => {
             <Wrapper>
                 <InnerWrapper>
                     <Logo>
-                        <Link to='/' onClick={toggleMenu}>
+                        <Link to='/' onClick={() => toggleMenu(false)}>
                             Onsite
                         </Link>
                     </Logo>

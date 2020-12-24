@@ -25,8 +25,13 @@ export const resetStyle = `
 		font-weight: 500;
 	}
 
-	p, span {
+	p, li, span {
 		font-size: 14px;
+		line-height: 1.5em;
+
+		@media screen and (min-width: 1024px) {
+			font-size: 16px;
+		}
 	}
 
 	a {
