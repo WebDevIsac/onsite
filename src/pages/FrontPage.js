@@ -14,13 +14,9 @@ const ContentWrapper = styled('div')`
     flex-direction: column;
     padding: 16px;
     max-width: 1440px;
-
-    & > div:after {
-        background-color: #000;
-    }
 `;
 
-const H1 = styled('h1')`
+const H2 = styled('h2')`
     margin-bottom: 8px;
 
     @media screen and (min-width: 1024px) {
@@ -37,10 +33,13 @@ const Text = styled('p')`
     }
 `;
 
-const ImageWrapper = styled('div')`
-    display: block;
-    width: 100%;
-    height: 400px;
+const Column = styled('div')`
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-of-type) {
+        margin-bottom: 32px;
+    }
 `;
 
 const FrontPage = () => {
@@ -48,16 +47,27 @@ const FrontPage = () => {
         <Wrapper>
             <Hero text='OnSite skapar framgång hos individer och företag' />
             <ContentWrapper>
-                <H1>Rådgivning och erfarenhet</H1>
-                <Text>
-                    När du anlitar OnSite så får du tillgång till en personlig rådgivare /expert med unik erfarenhet och förmåga att skapa framgång hos
-                    individer och företag.
-                </Text>
-                <LinkComponent toUrl='/om-oss' isReversed withAnimation>
-                    Läs mer om oss
-                </LinkComponent>
+                <H2>Rådgivning och erfarenhet</H2>
+                <Column>
+                    <Text>
+                        När du anlitar OnSite så får du tillgång till en personlig rådgivare /expert med unik erfarenhet och förmåga att skapa framgång hos
+                        individer och företag.
+                    </Text>
+                    <LinkComponent toUrl='/om-oss' isReversed withAnimation mobileUnderline lineColor='#000'>
+                        Läs mer om oss
+                    </LinkComponent>
+                </Column>
+                <H2>Kontakt oss</H2>
+                <Column>
+                    <Text>
+                        Är du sugen på en ny utmaning? Tag kontakt med OnSite så får du en personlig kartläggning och rådgivning om vad för typ av bolag och
+                        tjänst som matchar dig bäst.
+                    </Text>
+                    <LinkComponent toUrl='/kontakt' isReversed withAnimation mobileUnderline lineColor='#000'>
+                        Ta mig till kontaktsidan
+                    </LinkComponent>
+                </Column>
             </ContentWrapper>
-            <ImageWrapper></ImageWrapper>
         </Wrapper>
     );
 };

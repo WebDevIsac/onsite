@@ -39,7 +39,7 @@ const Text = styled('p')`
 const Services = () => {
     return (
         <Wrapper>
-            <Hero text='Organisationsutveckling / rådgivning – start up eller förändring' />
+            <Hero text='Organisation&shy;sutveckling / rådgivning – start up eller förändring' />
             <ContentWrapper>
                 <H1>Tjänster</H1>
                 <Text>

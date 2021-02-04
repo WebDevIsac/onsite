@@ -11,7 +11,7 @@ const Wrapper = styled('div')`
     justify-content: center;
     align-items: center;
     background-color: #f3cca7;
-    padding: 64px;
+    padding: 16px;
     margin-bottom: 32px;
     background-image: url(${img});
     background-repeat: no-repeat;
@@ -20,6 +20,7 @@ const Wrapper = styled('div')`
 
     @media screen and (min-width: 768px) {
         background-position: 50% 50%;
+        padding: 64px;
     }
 `;
 
@@ -28,6 +29,7 @@ const Heading = styled('h1')`
     line-height: 1.5em;
     color: #fff;
     text-align: center;
+    width: 100%;
 
     @media screen and (min-width: 1024px) {
         font-size: 3em;

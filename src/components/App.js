@@ -14,6 +14,7 @@ import FrontPage from 'pages/FrontPage';
 
 const Site = styled('div')`
     min-height: 100vh;
+    overflow-x: hidden;
 `;
 
 const PageWrapper = styled('div')`

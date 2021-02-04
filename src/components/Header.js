@@ -7,8 +7,9 @@ import InstagramIcon from 'components/icons/InstagramIcon';
 import FacebookIcon from 'components/icons/FacebookIcon';
 
 const Wrapper = styled('header')`
-    background-color: #ff9977;
+    background-color: #f2cca7;
     position: fixed;
+    z-index: 10;
     width: 100%;
 `;
 
@@ -24,12 +25,48 @@ const InnerWrapper = styled('div')`
 
     @media screen and (min-width: 1024px) {
         height: 72px;
+        padding: 0 16px;
     }
 `;
 
 const Logo = styled('div')`
-    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: #fff;
+
+    & > * {
+        display: none;
+    }
+
+    & > span:first-of-type {
+        display: initial;
+        font-size: 30px;
+        line-height: 1em;
+    }
+
+    @media screen and (min-width: 1024px) {
+        & > * {
+            font-weight: 500;
+            display: initial;
+        }
+
+        & > span:first-of-type {
+            font-size: 32px;
+            line-height: 36px;
+        }
+
+        & > div {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+        }
+
+        & > span:last-of-type {
+            font-variant-caps: all-small-caps;
+        }
+    }
 `;
 
 const HamburgerMenu = styled('button')`
@@ -83,7 +120,7 @@ const Navbar = styled('nav')`
     max-width: 500px;
     padding: 64px 32px 32px;
     transform: translateX(100%);
-    background-color: #ff9977;
+    background-color: #f2cca7;
     transition: transform 400ms ease;
 
     &.is-open {
@@ -192,11 +229,13 @@ const Header = () => {
         <>
             <Wrapper>
                 <InnerWrapper>
-                    <Logo>
-                        <Link to='/' onClick={() => toggleMenu(false)}>
-                            Onsite
-                        </Link>
-                    </Logo>
+                    <Link to='/' onClick={() => toggleMenu(false)}>
+                        <Logo>
+                            <span>Onsite</span>
+                            <div />
+                            <span>international search</span>
+                        </Logo>
+                    </Link>
                     <HamburgerMenu className={isMenuOpen ? 'is-open' : ''} onClick={toggleMenu}>
                         <Line />
                         <Line />
@@ -204,29 +243,35 @@ const Header = () => {
                     </HamburgerMenu>
                     <Navbar className={isMenuOpen ? 'is-open' : ''}>
                         <Item>
-                            <LinkComponent toUrl='/' onClick={toggleMenu} withAnimation>
+                            <LinkComponent toUrl='/' withAnimation handleClick={toggleMenu}>
                                 Hem
                             </LinkComponent>
                         </Item>
                         <Item>
-                            <LinkComponent toUrl='/tjanster' onClick={toggleMenu} withAnimation>
+                            <LinkComponent toUrl='/tjanster' withAnimation handleClick={toggleMenu}>
                                 Våra tjänster
                             </LinkComponent>
                         </Item>
                         <Item>
-                            <LinkComponent toUrl='/om-oss' onClick={toggleMenu} withAnimation>
+                            <LinkComponent toUrl='/om-oss' withAnimation handleClick={toggleMenu}>
                                 Om oss
                             </LinkComponent>
                         </Item>
                         <Item>
-                            <LinkComponent toUrl='/kontakt' onClick={toggleMenu} withAnimation>
+                            <LinkComponent toUrl='/kontakt' withAnimation handleClick={toggleMenu}>
                                 Kontakt
                             </LinkComponent>
                         </Item>
                         <Socials>
-                            <InstagramIcon width='40px' height='40px' />
-                            <LinkedInIcon width='40px' height='40px' />
-                            <FacebookIcon width='40px' height='40px' />
+                            <a target='_blank' href='https://www.instagram.com/helenekry/'>
+                                <InstagramIcon width='40px' height='40px' />
+                            </a>
+                            <a target='_blank' href='https://www.linkedin.com/in/helene-kry-9798a047/'>
+                                <LinkedInIcon width='40px' height='40px' />
+                            </a>
+                            <a target='_blank' href='https://www.facebook.com/helene.kry'>
+                                <FacebookIcon width='40px' height='40px' />
+                            </a>
                         </Socials>
                     </Navbar>
                     <MobileMenuBackground className={isMenuOpen ? 'is-open' : ''} onClick={toggleMenu} />

@@ -36,6 +36,14 @@ const Text = styled('p')`
     }
 `;
 
+const Ul = styled('ul')`
+    padding-left: 32px;
+`;
+
+const Li = styled('li')`
+    margin-bottom: 12px;
+`;
+
 const About = () => {
     return (
         <Wrapper>
@@ -49,16 +57,16 @@ const About = () => {
                     sektorn.
                 </Text>
 
-                <ul>
-                    <li>30 års ledarerfarenhet</li>
-                    <li>Mer än 20 års Search/ Rekrytering Chefer/Specialister</li>
-                    <li>Mentor Coach Management</li>
-                    <li>10 års erfarenhet av organisations utveckling </li>
-                    <li>Internationell erfarenhet</li>
-                    <li>Erfarenhet från Entreprenörsbolag, familjebolag och Investment ägda bolag</li>
-                    <li>100 % fokus på ert företags behov</li>
-                    <li>Flexibilitet</li>
-                </ul>
+                <Ul>
+                    <Li>30 års ledarerfarenhet</Li>
+                    <Li>Mer än 20 års Search/ Rekrytering Chefer/Specialister</Li>
+                    <Li>Mentor Coach Management</Li>
+                    <Li>10 års erfarenhet av organisations utveckling </Li>
+                    <Li>Internationell erfarenhet</Li>
+                    <Li>Erfarenhet från Entreprenörsbolag, familjebolag och Investment ägda bolag</Li>
+                    <Li>100 % fokus på ert företags behov</Li>
+                    <Li>Flexibilitet</Li>
+                </Ul>
             </ContentWrapper>
         </Wrapper>
     );

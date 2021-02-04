@@ -8,7 +8,15 @@ const LinkWrapper = styled('div')`
     position: relative;
     line-height: 1.2em;
 
+    &.mobile-underline {
+        text-decoration: underline;
+    }
+
     @media screen and (hover: hover) {
+        &.mobile-underline {
+            text-decoration: none;
+        }
+
         &:after {
             position: absolute;
             bottom: 0;
@@ -16,10 +24,9 @@ const LinkWrapper = styled('div')`
             content: '';
             display: block;
             height: 2px;
-            background-color: #fff;
+            background-color: ${prop => prop.lineColor};
             width: 100%;
             transition: max-width 300ms ease;
-
             max-width: 0px;
         }
 
@@ -39,12 +46,18 @@ const LinkWrapper = styled('div')`
     }
 `;
 
-const LinkComponent = ({ children, isReversed, toUrl, handleClick }) => {
+const LinkComponent = ({ children, isReversed, toUrl, handleClick, mobileUnderline, lineColor = '#fff', isExternal, target }) => {
     return (
-        <LinkWrapper className={isReversed ? 'is-reversed' : ''}>
-            <Link to={toUrl} onClick={handleClick}>
-                {children}
-            </Link>
+        <LinkWrapper className={`${isReversed ? 'is-reversed' : ''} ${mobileUnderline ? 'mobile-underline' : ''}`} lineColor={lineColor}>
+            {isExternal ? (
+                <a href={toUrl} target={target} onClick={handleClick}>
+                    {children}
+                </a>
+            ) : (
+                <Link to={toUrl} target={target} onClick={handleClick}>
+                    {children}
+                </Link>
+            )}
         </LinkWrapper>
     );
 };
