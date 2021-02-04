@@ -39,6 +39,7 @@ const Text = styled('p')`
 
 const ContactWrapper = styled('div')`
     display: block;
+    max-width: 320px;
     padding: 12px;
     border: 2px solid #f2cca7;
     border-radius: 4px;

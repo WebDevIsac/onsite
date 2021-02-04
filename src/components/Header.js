@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import LinkComponent from 'components/LinkComponent';
@@ -143,7 +143,7 @@ const Item = styled('div')`
     color: #fff;
     font-size: 20px;
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023px) {
         &:not(:last-of-type) {
             margin-bottom: 40px;
         }
@@ -203,6 +203,9 @@ const HeaderFiller = styled('div')`
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const wrapperEl = useRef(null);
+
+    useEffect(() => {}, []);
 
     const toggleMenu = (shouldOpen = true) => {
         if (!isMenuOpen && !shouldOpen) {
@@ -210,7 +213,7 @@ const Header = () => {
         }
 
         let body;
-        if (document !== undefined) {
+        if (document !== undefined && wrapperEl.current.offsetWidth < 1024) {
             body = document.querySelector('body');
         } else {
             return;
@@ -227,7 +230,7 @@ const Header = () => {
 
     return (
         <>
-            <Wrapper>
+            <Wrapper ref={wrapperEl}>
                 <InnerWrapper>
                     <Link to='/' onClick={() => toggleMenu(false)}>
                         <Logo>
