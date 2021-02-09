@@ -164,6 +164,7 @@ const Socials = styled('div')`
     justify-content: space-around;
     align-items: center;
     margin-top: auto;
+    margin-bottom: 128px;
 
     @media screen and (min-width: 1024px) {
         display: none;
