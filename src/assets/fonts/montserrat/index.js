@@ -1,15 +1,15 @@
-import regular from './400.ttf';
-import medium from './500.ttf';
-import bold from './700.ttf';
+import regular from './Montserrat-Regular.woff2';
+import medium from './Montserrat-Medium.woff2';
+import bold from './Montserrat-Bold.woff2';
 
 export default {
     regular: {
-        ttf: regular,
+        woff2: regular,
     },
     medium: {
-        ttf: medium,
+        woff2: medium,
     },
     bold: {
-        ttf: bold,
+        woff2: bold,
     },
 };
