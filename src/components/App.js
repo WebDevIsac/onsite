@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Global, css } from '@emotion/core';
+import loadable from '@loadable/component';
 
 import { resetStyle } from 'assets/resetStyle';
 import { fontString } from 'assets/fonts/fontString';
@@ -25,6 +26,11 @@ const PageWrapper = styled('div')`
     margin: 0 auto 64px;
 `;
 
+const LoadableServices = loadable(() => import('pages/Services'));
+const LoadableAbout = loadable(() => import('pages/About'));
+const LoadableContact = loadable(() => import('pages/Contact'));
+const LoadableFrontPage = loadable(() => import('pages/FrontPage'));
+
 const App = () => {
     return (
         <>
@@ -40,16 +46,16 @@ const App = () => {
                     <PageWrapper>
                         <Switch>
                             <Route path='/tjanster'>
-                                <Services />
+                                <LoadableServices />
                             </Route>
                             <Route path='/om-oss'>
-                                <About />
+                                <LoadableAbout />
                             </Route>
                             <Route path='/kontakt'>
-                                <Contact />
+                                <LoadableContact />
                             </Route>
                             <Route path='/'>
-                                <FrontPage />
+                                <LoadableFrontPage />
                             </Route>
                         </Switch>
                     </PageWrapper>
