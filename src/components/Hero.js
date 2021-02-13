@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import img from 'assets/images/image1.png';
+import img from 'assets/images/main.jpg';
 
 const Wrapper = styled('div')`
     width: 100%;
     height: 50vh;
+    max-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
