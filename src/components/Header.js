@@ -235,7 +235,7 @@ const Header = () => {
                 <InnerWrapper>
                     <Link to='/' onClick={() => toggleMenu(false)}>
                         <Logo>
-                            <span>Onsite</span>
+                            <span>OnSite</span>
                             <div />
                             <span>international search</span>
                         </Logo>

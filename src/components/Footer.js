@@ -117,7 +117,7 @@ const Footer = () => {
     return (
         <Wrapper>
             <Logo>
-                <span>Onsite</span>
+                <span>OnSite</span>
                 <div />
                 <span>international search</span>
             </Logo>
