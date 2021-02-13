@@ -2,3 +2,12 @@ Options -MultiViews
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.html [QSA,L]
+
+<IfModule mod_headers.c>
+Header set Connection keep-alive
+Header set Cache-Control "max-age=7200, must-revalidate"
+
+    <filesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|swf|ttf|woff|woff2)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </filesMatch>
+</IfModule>
