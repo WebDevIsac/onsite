@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Hero from 'components/Hero';
-import LinkComponent from 'components/LinkComponent';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled('div')`
     display: flex;
@@ -73,15 +73,15 @@ const Contact = () => {
                 <ContactWrapper>
                     <LinkWrapper>
                         <Span>Email: </Span>
-                        <LinkComponent isExternal mobileUnderline isReversed toUrl='mailto:helene.kry@onsite.se' lineColor='#000' target='_blank'>
+                        <Link isExternal mobileUnderline isReversed toUrl='mailto:helene.kry@onsite.se' lineColor='#000' target='_blank'>
                             helene.kry@onsite.se
-                        </LinkComponent>
+                        </Link>
                     </LinkWrapper>
                     <LinkWrapper>
                         <Span>Telefon: </Span>
-                        <LinkComponent isExternal mobileUnderline isReversed toUrl='tel:+46703743345' lineColor='#000' target='_blank'>
+                        <Link isExternal mobileUnderline isReversed toUrl='tel:+46703743345' lineColor='#000' target='_blank'>
                             +46703743345
-                        </LinkComponent>
+                        </Link>
                     </LinkWrapper>
                 </ContactWrapper>
 

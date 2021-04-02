@@ -22,14 +22,18 @@ const Site = styled('div')`
 const PageWrapper = styled('div')`
     height: 100%;
     width: 100%;
+    min-height: 100vh;
     max-width: 1980px;
     margin: 0 auto 64px;
 `;
 
-const LoadableServices = loadable(() => import('pages/Services'));
-const LoadableAbout = loadable(() => import('pages/About'));
-const LoadableContact = loadable(() => import('pages/Contact'));
-const LoadableFrontPage = loadable(() => import('pages/FrontPage'));
+// const LoadableServices = loadable(() => import('pages/Services'));
+const LoadableExecutive = loadable(async () => import('pages/Executive'));
+const LoadableManagement = loadable(async () => import('pages/Management'));
+const LoadableInterim = loadable(async () => import('pages/Interim'));
+const LoadableAbout = loadable(async () => import('pages/About'));
+const LoadableContact = loadable(async () => import('pages/Contact'));
+const LoadableFrontPage = loadable(async () => import('pages/FrontPage'));
 
 const App = () => {
     return (
@@ -45,13 +49,19 @@ const App = () => {
                     <Header />
                     <PageWrapper>
                         <Switch>
-                            <Route path='/tjanster'>
-                                <LoadableServices />
+                            <Route path='/executive'>
+                                <LoadableExecutive />
                             </Route>
-                            <Route path='/om-oss'>
+                            <Route path='/management'>
+                                <LoadableManagement />
+                            </Route>
+                            <Route path='/interim'>
+                                <LoadableInterim />
+                            </Route>
+                            <Route path='/about'>
                                 <LoadableAbout />
                             </Route>
-                            <Route path='/kontakt'>
+                            <Route path='/contact'>
                                 <LoadableContact />
                             </Route>
                             <Route path='/'>

@@ -5,8 +5,8 @@ import img from 'assets/images/main.jpg';
 
 const Wrapper = styled('div')`
     width: 100%;
-    height: 50vh;
-    max-height: 500px;
+    height: 60vh;
+    /* max-height: 500px; */
     display: flex;
     flex-direction: column;
     justify-content: center;

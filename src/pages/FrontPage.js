@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Hero from 'components/Hero';
-import LinkComponent from 'components/LinkComponent';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled('div')`
     display: flex;
@@ -18,6 +18,10 @@ const ContentWrapper = styled('div')`
 
 const H2 = styled('h2')`
     margin-bottom: 8px;
+
+    & > div {
+        display: inline;
+    }
 
     @media screen and (min-width: 1024px) {
         margin-bottom: 12px;
@@ -45,27 +49,20 @@ const Column = styled('div')`
 const FrontPage = () => {
     return (
         <Wrapper>
-            <Hero text='OnSite skapar framgång hos individer och företag' />
+            <Hero text='OnSite creates success for individuals and companies' />
             <ContentWrapper>
-                <H2>Rådgivning och erfarenhet</H2>
+                <H2>Onsite</H2>
                 <Column>
                     <Text>
-                        När du anlitar OnSite så får du tillgång till en personlig rådgivare /expert med unik erfarenhet och förmåga att skapa framgång hos
-                        individer och företag.
+                        Helene Kry started OnSite as a Executive Search firm 2007. Helene Kry’s heritage began when she started her first recruiting career
+                        within Manpower 1999 working with a broad range of industries. She mentored her highly successful team of recruiters to seek out top
+                        talent in Sweden. In 2007 she launched OnSite to provide highly personalized executive search and strategy within the Lifestyle, Fashion
+                        and Retail Industries. For 13 years, she worked with Gina Tricot in building the organization, developing the culture, hiring talents
+                        and management, start up business in the Nordic Countries and Germany. Focusareas also on Change Management and Coaching Toplevel
+                        Managers. With 22 years of executive search and management experience, We can provide superior service, industry insight and experience
+                        with a special expertise in fashion and lifestyle.
                     </Text>
-                    <LinkComponent toUrl='/om-oss' isReversed withAnimation mobileUnderline lineColor='#000'>
-                        Läs mer om oss
-                    </LinkComponent>
-                </Column>
-                <H2>Kontakt oss</H2>
-                <Column>
-                    <Text>
-                        Är du sugen på en ny utmaning? Tag kontakt med OnSite så får du en personlig kartläggning och rådgivning om vad för typ av bolag och
-                        tjänst som matchar dig bäst.
-                    </Text>
-                    <LinkComponent toUrl='/kontakt' isReversed withAnimation mobileUnderline lineColor='#000'>
-                        Ta mig till kontaktsidan
-                    </LinkComponent>
+                    <Link to='/about'>Read more about Onsite</Link>
                 </Column>
             </ContentWrapper>
         </Wrapper>

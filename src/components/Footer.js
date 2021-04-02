@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import LinkComponent from 'components/LinkComponent';
+import { Link } from 'react-router-dom';
 import LinkedInIcon from 'components/icons/LinkedInIcon';
 import InstagramIcon from 'components/icons/InstagramIcon';
 import FacebookIcon from 'components/icons/FacebookIcon';
@@ -125,15 +125,15 @@ const Footer = () => {
                 <ContactWrapper>
                     <LinkWrapper>
                         <Span>Email: </Span>
-                        <LinkComponent isExternal mobileUnderline isReversed toUrl='mailto:helene.kry@onsite.se' lineColor='#fff' target='_blank'>
+                        <Link to='mailto:helene.kry@onsite.se' target='_blank'>
                             helene.kry@onsite.se
-                        </LinkComponent>
+                        </Link>
                     </LinkWrapper>
                     <LinkWrapper>
                         <Span>Telefon: </Span>
-                        <LinkComponent isExternal mobileUnderline isReversed toUrl='tel:+46703743345' lineColor='#fff' target='_blank'>
+                        <Link to='tel:+46703743345' target='_blank'>
                             +46703743345
-                        </LinkComponent>
+                        </Link>
                     </LinkWrapper>
                 </ContactWrapper>
                 <Socials>
