@@ -3,7 +3,7 @@ export const resetStyle = `
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		font-family: 'Montserrat';
+		font-family: 'Titillium Web';
 		line-height: 1em;
 	}
 
@@ -22,7 +22,13 @@ export const resetStyle = `
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		font-weight: 500;
+		font-weight: 600;
+		letter-spacing: 2px;
+	}
+
+	h2 {
+		font-variant: all-small-caps;
+		font-size: 32px;
 	}
 
 	p, li, span {
